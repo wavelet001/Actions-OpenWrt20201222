@@ -86,9 +86,7 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_P2_SH
     - name: DIY
       run: |
-        cd openwrt/package
-        git clone https://github.com/jerrykuku/luci-theme-argon.git  
-        cd ..
+        cd openwrt
         git branch -a
         git tag
         git checkout -f 8.0_b202012211725
