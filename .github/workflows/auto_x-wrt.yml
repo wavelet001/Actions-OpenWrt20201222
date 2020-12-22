@@ -84,7 +84,19 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+    - name: DIY
+      run: |
+        cd openwrt/package
+        git clone https://github.com/jerrykuku/luci-theme-argon.git  
+        cd ..
+        git branch -a
+        git tag
+        git checkout -f 8.0_b202012211725
+        git pull origin 8.0_b202012211725
+        git stash
+        git stash list
         cp feeds/x/rom/lede/config.x86_64-docker .config
+        ./scripts/feeds update -a && ./scripts/feeds install -a
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
