@@ -69,7 +69,7 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         git fetch origin
-        cp feeds/x/rom/lede/config.x86_64-docker .config
+        cp $GITHUB_WORKSPACE/openwrt/feeds/x/rom/lede/config.x86_64-docker $GITHUB_WORKSPACE/openwrt/config
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Update feeds
